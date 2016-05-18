@@ -7,7 +7,7 @@
 
     <script type="text/javascript">
         Rally.onReady(function () {
-                Ext.define("CustomApp",{extend:"Rally.app.App",componentCls:"app",launch:function(){}});
+                Ext.define("CustomApp",{extend:"Rally.app.App",componentCls:"app",launch:function(){this.add({xtype:"rallygrid",columnCfgs:["FormattedID","Name","State","ToDo"],context:this.getContext(),features:[{ftype:"groupingsummary",groupHeaderTpl:"{name} ({rows.length})"}],storeConfig:{model:"task",groupField:"Owner",groupDir:"ASC",fetch:["Owner"],getGroupString:function(record){var owner=record.get("Owner");return owner&&owner._refObjectName||"No Owner"}}})}});
 
             Rally.launchApp('CustomApp', {
                 name:"Tasks by Team Member",
