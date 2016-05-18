@@ -10,7 +10,8 @@ Ext.define('CustomApp', {
                 'FormattedID',
                 'Name',
                 'State',
-                'ToDo'
+                'ToDo',
+                'c_TeamMembers'
             ],
             context: this.getContext(),
             features: [{
