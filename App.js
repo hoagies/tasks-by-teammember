@@ -19,12 +19,12 @@ Ext.define('CustomApp', {
             }],
             storeConfig: {
                 model: 'task',
-                groupField: 'Owner',
+                groupField: 'c_TeamMembers',
                 groupDir: 'ASC',
-                fetch: ['Owner'],
+                fetch: ['c_TeamMembesr'],
                 getGroupString: function(record) {
-                    var owner = record.get('Owner');
-                    return (owner && owner._refObjectName) || 'No Owner';
+                    var owner = record.get('c_TeamMembesr');
+                    return (owner && owner._refObjectName) || 'No Team Member';
                 }
             }
         });
