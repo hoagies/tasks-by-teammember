@@ -25,7 +25,8 @@ Ext.define('CustomApp', {
                 fetch: ['c_TeamMembers'],
                 getGroupString: function(record) {
                     var owner = record.get('c_TeamMembers');
-                    return (owner && owner._refObjectName) || 'No Team Member';
+                    console.log(owner);
+                    return (owner) || 'No Team Member';
                 }
             }
         });

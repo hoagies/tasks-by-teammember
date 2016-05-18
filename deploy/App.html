@@ -7,7 +7,7 @@
 
     <script type="text/javascript">
         Rally.onReady(function () {
-                Ext.define("CustomApp",{extend:"Rally.app.App",componentCls:"app",launch:function(){this.add({xtype:"rallygrid",columnCfgs:["FormattedID","Name","State","ToDo","c_TeamMembers"],context:this.getContext(),features:[{ftype:"groupingsummary",groupHeaderTpl:"{name} ({rows.length})"}],storeConfig:{model:"task",groupField:"c_TeamMembers",groupDir:"ASC",fetch:["c_TeamMembers"],getGroupString:function(record){var owner=record.get("c_TeamMembers");return owner&&owner._refObjectName||"No Team Member"}}})}});
+                Ext.define("CustomApp",{extend:"Rally.app.App",componentCls:"app",launch:function(){this.add({xtype:"rallygrid",columnCfgs:["FormattedID","Name","State","ToDo","c_TeamMembers"],context:this.getContext(),features:[{ftype:"groupingsummary",groupHeaderTpl:"{name} ({rows.length})"}],storeConfig:{model:"task",groupField:"c_TeamMembers",groupDir:"ASC",fetch:["c_TeamMembers"],getGroupString:function(record){var owner=record.get("c_TeamMembers");return console.log(owner),owner||"No Team Member"}}})}});
 
             Rally.launchApp('CustomApp', {
                 name:"Tasks by Team Member",
