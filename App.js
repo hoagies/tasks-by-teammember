@@ -21,9 +21,9 @@ Ext.define('CustomApp', {
                 model: 'task',
                 groupField: 'c_TeamMembers',
                 groupDir: 'ASC',
-                fetch: ['c_TeamMembesr'],
+                fetch: ['c_TeamMembers'],
                 getGroupString: function(record) {
-                    var owner = record.get('c_TeamMembesr');
+                    var owner = record.get('c_TeamMembers');
                     return (owner && owner._refObjectName) || 'No Team Member';
                 }
             }
