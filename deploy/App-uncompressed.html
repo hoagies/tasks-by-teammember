@@ -19,22 +19,22 @@
         }
 
         this.board = this.add({
-            xtype: 'rallycardboard',
-            // columnCfgs: [
-            //     'FormattedID',
-            //     'Name',
-            //     'State',
-            //     'Iteration',
-            //     'ToDo',
-            //     'c_TeamMembers'
-            // ],
+            xtype: 'rallygrid',
+            columnCfgs: [
+                'FormattedID',
+                'Name',
+                // 'State',
+                'Iteration',
+                // 'ToDo',
+                // 'c_TeamMembers'
+            ],
             // context: this.getContext(),
             // features: [{
             //     ftype: 'groupingsummary',
             //     groupHeaderTpl: '{name} ({rows.length})'
             // }],
             storeConfig: {
-                // model: 'task',
+                model: 'userstory',
             //     groupField: 'c_TeamMembers',
             //     groupDir: 'ASC',
             //     fetch: ['c_TeamMembers'],
