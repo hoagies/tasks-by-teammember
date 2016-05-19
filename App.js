@@ -48,6 +48,7 @@ Ext.define('CustomApp', {
 
     onTimeboxScopeChange: function(newTimeboxScope) {
         this.callParent(arguments);
+        console.log('newTimeboxScope',newTimeboxScope);
         console.log('board: ',this.board);
         this.board.refresh({
             storeConfig: {
