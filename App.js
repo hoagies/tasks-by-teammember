@@ -11,23 +11,13 @@ Ext.define('CustomApp', {
             var startDate = timeboxScope.getType() === 'iteration' ? 
                 record.get('StartDate') : record.get('ReleaseStartDate');
         }
-        console.log(timeboxScope);
         
-        var filters = [], timeboxScope = this.getContext().getTimeboxScope();
+        var filters = [];
+        // var timeboxScope = this.getContext().getTimeboxScope();
         if(timeboxScope) {
-            console.log('pushing');
             filters.push(timeboxScope.getQueryFilter());
         }
     
-        // this.iterationCombobox = this.add({
-        //     xtype: 'rallyiterationcombobox',
-        //     listeners: {
-        //         ready: this._onIterationComboboxLoad,
-        //         change: this._onIterationComboboxLoad,
-        //         scope: this
-        //     }
-        // });
-
         this.board = this.add({
             xtype: 'rallygrid',
             columnCfgs: [
@@ -47,7 +37,9 @@ Ext.define('CustomApp', {
                 groupField: 'c_TeamMembers',
                 groupDir: 'ASC',
                 fetch: ['c_TeamMembers'],
-                filters: filters,
+                storeConfig: {
+                    filters: filters
+                },
                 getGroupString: function(record) {
                     var owner = record.get('c_TeamMembers');
                     return (owner) || 'No Team Member';
@@ -55,14 +47,10 @@ Ext.define('CustomApp', {
             }
         });
     },
-    
-    // _onIterationComboboxLoad: function(){
-    //         console.log("SEAN");
-    // },
-    
+
     onTimeboxScopeChange: function(newTimeboxScope) {
         this.callParent(arguments);
-        console.log(newTimeboxScope.getQueryFilter());
+        console.log('board: ',this.board);
         this.board.refresh({
             storeConfig: {
                 filters: [
