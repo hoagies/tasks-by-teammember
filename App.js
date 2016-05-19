@@ -18,7 +18,7 @@ Ext.define('CustomApp', {
             filters.push(timeboxScope.getQueryFilter());
         }
     
-        this.board = this.add({
+        this.grid = this.add({
             xtype: 'rallygrid',
             columnCfgs: [
                 'FormattedID',
@@ -47,15 +47,20 @@ Ext.define('CustomApp', {
     },
 
     onTimeboxScopeChange: function(newTimeboxScope) {
+        var grid = this.down('rallygrid');
         this.callParent(arguments);
-        console.log('newTimeboxScope',newTimeboxScope);
+        console.log('newTimeboxScope: ',newTimeboxScope);
         console.log('board: ',this.board);
-        this.board.refresh({
+        console.log('grid: ',grid);
+        // this.board.refresh({
+        grid.refresh({
             storeConfig: {
                 filters: [
                     newTimeboxScope.getQueryFilter()
                 ]
             }
         });
-    }
+    },
+    
+    
 });
