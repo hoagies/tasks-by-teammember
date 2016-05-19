@@ -38,10 +38,10 @@ Ext.define('CustomApp', {
                         {dataIndex: 'Name',flex: 3},
                         {dataIndex: 'WorkProduct',flex: 2},
                         {dataIndex: 'State',width: 40},
-                        {dataIndex: 'Estimate',width: 40},
-                        {dataIndex: 'ToDo',width: 40},
-                        {dataIndex: 'Actuals',width: 40},
-                        {dataIndex: 'DisplayColor',width: 40}
+                        {dataIndex: 'Estimate',width: 55,text: 'Est'},
+                        {dataIndex: 'ToDo',width: 55,text: 'To Do'},
+                        {dataIndex: 'Actuals',width: 55,text: 'Act'},
+                        {dataIndex: 'DisplayColor',width: 60}
                     ],
                     context: this.getContext(),
                     features: [{
