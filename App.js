@@ -53,7 +53,7 @@ Ext.define('CustomApp', {
     
     onTimeboxScopeChange: function(newTimeboxScope) {
         this.callParent(arguments);
-
+        console.log(newTimeboxScope.getQueryFilter());
         this.board.refresh({
             storeConfig: {
                 filters: [
