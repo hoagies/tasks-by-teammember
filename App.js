@@ -9,21 +9,15 @@ Ext.define('CustomApp', {
             console.log('pushing');
             filters.push(timeboxScope.getQueryFilter());
         }
-        
-        
-        
-        
-        
-        
-        
-        this.iterationCombobox = this.add({
-            xtype: 'rallyiterationcombobox',
-            listeners: {
-                ready: this._onIterationComboboxLoad,
-                change: this._onIterationComboboxLoad,
-                scope: this
-            }
-        });
+    
+        // this.iterationCombobox = this.add({
+        //     xtype: 'rallyiterationcombobox',
+        //     listeners: {
+        //         ready: this._onIterationComboboxLoad,
+        //         change: this._onIterationComboboxLoad,
+        //         scope: this
+        //     }
+        // });
 
         this.board = this.add({
             xtype: 'rallygrid',
@@ -53,10 +47,9 @@ Ext.define('CustomApp', {
         });
     },
     
-    _onIterationComboboxLoad: function(){
-            console.log("SEAN");
-        //can be empty for now
-    },
+    // _onIterationComboboxLoad: function(){
+    //         console.log("SEAN");
+    // },
     
     onTimeboxScopeChange: function(newTimeboxScope) {
         this.callParent(arguments);
