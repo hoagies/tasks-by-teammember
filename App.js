@@ -1,10 +1,17 @@
 Ext.define('CustomApp', {
-    // extend: 'Rally.app.App',
-    extend: 'Rally.app.TimeboxScopedApp',
-    scopeType: 'iteration',
+    extend: 'Rally.app.App',
     componentCls: 'app',
     launch: function() {
         //Write app code here
+        
+        var timeboxScope = this.getContext().getTimeboxScope();
+        if(timeboxScope) {
+            var record = timeboxScope.getRecord();
+            var name = record.get('Name');
+            var startDate = timeboxScope.getType() === 'iteration' ? 
+                record.get('StartDate') : record.get('ReleaseStartDate');
+        }
+        console.log(timeboxScope);
         
         var filters = [], timeboxScope = this.getContext().getTimeboxScope();
         if(timeboxScope) {
