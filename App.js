@@ -19,7 +19,7 @@ Ext.define('CustomApp', {
                 'ToDo',
                 'c_TeamMembers'
             ],
-            context: this.getContext(),
+            // context: this.getContext(),
             // features: [{
             //     ftype: 'groupingsummary',
             //     groupHeaderTpl: '{name} ({rows.length})'
