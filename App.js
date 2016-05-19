@@ -41,8 +41,20 @@ Ext.define('CustomApp', {
                         'ToDo',
                         'c_TeamMembers'
                     ],
+                    context: this.getContext(),
+                    features: [{
+                        ftype: 'groupingsummary',
+                        groupHeaderTpl: '{name} ({rows.length})'
+                    }],
                     storeConfig: {
-                        filters: queryFilters
+                        filters: queryFilters,
+                        groupField: 'c_TeamMembers',
+                        groupDir: 'ASC',
+                        fetch: ['c_TeamMembers'],
+                        getGroupString: function(record) {
+                            var owner = record.get('c_TeamMembers');
+                            return (owner) || 'No Team Member';
+                        }
                     }
                 });
             },
