@@ -34,14 +34,14 @@ Ext.define('CustomApp', {
                     xtype: 'rallygrid',
                     model: model,
                     columnCfgs: [
-                        'FormattedID',
-                        'Name',
-                        'WorkProduct',
-                        'State',
-                        'Estimate',
-                        'ToDo',
-                        'Actuals',
-                        'DisplayColor',
+                        {dataIndex: 'FormattedID',width: 90},
+                        {dataIndex: 'Name',flex: 3},
+                        {dataIndex: 'WorkProduct',flex: 2},
+                        {dataIndex: 'State',width: 40},
+                        {dataIndex: 'Estimate',width: 40},
+                        {dataIndex: 'ToDo',width: 40},
+                        {dataIndex: 'Actuals',width: 40},
+                        {dataIndex: 'DisplayColor',width: 40}
                     ],
                     context: this.getContext(),
                     features: [{
