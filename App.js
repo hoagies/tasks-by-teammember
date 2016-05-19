@@ -1,5 +1,7 @@
 Ext.define('CustomApp', {
-    extend: 'Rally.app.App',
+    // extend: 'Rally.app.App',
+    extend: 'Rally.app.TimeboxScopedApp',
+    scopeType: 'iteration',
     componentCls: 'app',
     launch: function() {
         //Write app code here
