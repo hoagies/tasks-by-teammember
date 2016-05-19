@@ -37,9 +37,7 @@ Ext.define('CustomApp', {
                 groupField: 'c_TeamMembers',
                 groupDir: 'ASC',
                 fetch: ['c_TeamMembers'],
-                storeConfig: {
-                    filters: filters
-                },
+                filters: filters,
                 getGroupString: function(record) {
                     var owner = record.get('c_TeamMembers');
                     return (owner) || 'No Team Member';
