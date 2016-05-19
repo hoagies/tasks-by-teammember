@@ -19,9 +19,30 @@
         }
 
         this.board = this.add({
-            xtype: 'rallycardboard',
+            xtype: 'rallygrid',
+            columnCfgs: [
+                'FormattedID',
+                'Name',
+                'State',
+                'Iteration',
+                'ToDo',
+                'c_TeamMembers'
+            ],
+            context: this.getContext(),
+            // features: [{
+            //     ftype: 'groupingsummary',
+            //     groupHeaderTpl: '{name} ({rows.length})'
+            // }],
             storeConfig: {
-                filters: filters
+                model: 'task',
+            //     groupField: 'c_TeamMembers',
+            //     groupDir: 'ASC',
+            //     fetch: ['c_TeamMembers'],
+                filters: filters,
+            //     getGroupString: function(record) {
+            //         var owner = record.get('c_TeamMembers');
+            //         return (owner) || 'No Team Member';
+            //     }
             }
         });
     },

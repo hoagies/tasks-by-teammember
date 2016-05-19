@@ -7,7 +7,7 @@
 
     <script type="text/javascript">
         Rally.onReady(function () {
-                Ext.define("CustomApp",{extend:"Rally.app.App",componentCls:"app",launch:function(){var filters=[],timeboxScope=this.getContext().getTimeboxScope();timeboxScope&&filters.push(timeboxScope.getQueryFilter()),this.board=this.add({xtype:"rallycardboard",storeConfig:{filters:filters}})},onTimeboxScopeChange:function(newTimeboxScope){this.callParent(arguments),this.board.refresh({storeConfig:{filters:[newTimeboxScope.getQueryFilter()]}})}});
+                Ext.define("CustomApp",{extend:"Rally.app.App",componentCls:"app",launch:function(){var filters=[],timeboxScope=this.getContext().getTimeboxScope();timeboxScope&&filters.push(timeboxScope.getQueryFilter()),this.board=this.add({xtype:"rallygrid",columnCfgs:["FormattedID","Name","State","Iteration","ToDo","c_TeamMembers"],context:this.getContext(),storeConfig:{model:"task",filters:filters}})},onTimeboxScopeChange:function(newTimeboxScope){this.callParent(arguments),this.board.refresh({storeConfig:{filters:[newTimeboxScope.getQueryFilter()]}})}});
 
             Rally.launchApp('CustomApp', {
                 name:"Tasks by Team Member",
