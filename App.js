@@ -36,10 +36,12 @@ Ext.define('CustomApp', {
                     columnCfgs: [
                         'FormattedID',
                         'Name',
+                        'WorkProduct',
                         'State',
-                        'Iteration',
+                        'Estimate',
                         'ToDo',
-                        'c_TeamMembers'
+                        'Actuals',
+                        'DisplayColor',
                     ],
                     context: this.getContext(),
                     features: [{
