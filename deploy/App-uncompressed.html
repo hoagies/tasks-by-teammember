@@ -12,8 +12,29 @@
     componentCls: 'app',
     launch: function() {
         //Write app code here
+        
+        var filters = [], timeboxScope = this.getContext().getTimeboxScope();
+        if(timeboxScope) {
+            console.log('pushing');
+            filters.push(timeboxScope.getQueryFilter());
+        }
+        
+        
+        
+        
+        
+        
+        
+        this.iterationCombobox = this.add({
+            xtype: 'rallyiterationcombobox',
+            listeners: {
+                ready: this._onIterationComboboxLoad,
+                change: this._onIterationComboboxLoad,
+                scope: this
+            }
+        });
 
-        this.add({
+        this.board = this.add({
             xtype: 'rallygrid',
             columnCfgs: [
                 'FormattedID',
@@ -32,15 +53,30 @@
                 groupField: 'c_TeamMembers',
                 groupDir: 'ASC',
                 fetch: ['c_TeamMembers'],
+                filters: filters,
                 getGroupString: function(record) {
                     var owner = record.get('c_TeamMembers');
-                    console.log(owner);
                     return (owner) || 'No Team Member';
                 }
             }
         });
+    },
+    
+    _onIterationComboboxLoad: function(){
+            console.log("SEAN");
+        //can be empty for now
+    },
+    
+    onTimeboxScopeChange: function(newTimeboxScope) {
+        this.callParent(arguments);
 
-        //API Docs: https://help.rallydev.com/apps/2.1/doc/
+        this.board.refresh({
+            storeConfig: {
+                filters: [
+                    newTimeboxScope.getQueryFilter()
+                ]
+            }
+        });
     }
 });
 
