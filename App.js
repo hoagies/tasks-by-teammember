@@ -28,7 +28,7 @@ Ext.define('CustomApp', {
 
     getFilteredStoryModel: function(queryFilters) {
         Rally.data.ModelFactory.getModel({
-            type: 'UserStory',
+            type: 'task',
             success: function(model) {
                 this.grid = this.add({
                     xtype: 'rallygrid',
@@ -36,8 +36,10 @@ Ext.define('CustomApp', {
                     columnCfgs: [
                         'FormattedID',
                         'Name',
-                        'Owner',
-                        'Iteration'
+                        'State',
+                        'Iteration',
+                        'ToDo',
+                        'c_TeamMembers'
                     ],
                     storeConfig: {
                         filters: queryFilters
