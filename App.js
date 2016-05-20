@@ -33,7 +33,7 @@ Ext.define('CustomApp', {
                 this.grid = this.add({
                     xtype: 'rallygrid',
                     model: model,
-                    stateful: false,
+                    stateful: true,
                     showRowActionsColumn: false,
                     columnCfgs: [
                         {dataIndex: 'FormattedID',width: 90},
